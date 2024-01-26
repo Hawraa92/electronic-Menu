@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Electronic Menu Restaurant - Home{% endblock %}
+
+{% block content %}
+<div class="home-background">
+    <div class="search-container">
+        <form action="{% url 'search_results' %}" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

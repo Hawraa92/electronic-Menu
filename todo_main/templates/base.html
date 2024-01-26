@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Electronic Menu Restaurant{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- Adding a favicon -->
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="nav-bar-container">
+            <a href="{% url 'home' %}" class="logo">
+                <img src="{% static 'img/logo.png' %}" alt="Electronic Menu Restaurant Logo" class="header-logo">
+                <span class="logo-subtext">Electronic Menu</span>
+            </a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                    <li><a href="{% url 'menu' %}" class="nav-link">Menu</a></li>
+                    <li><a href="{% url 'order_online' %}" class="nav-link">Order Online</a></li>
+                    <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                    <li><a href="{% url 'gallery' %}" class="nav-link">Gallery</a></li>
+                    <li><a href="{% url 'signup' %}" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- This block will be filled with content from child templates -->
+        {% endblock content %}
+    </main>
+
+    <footer class="footer-section">
+        <div class="subscribe">
+            <h3>Subscribe</h3>
+            <form class="subscribe-form">
+                <input type="text" placeholder="Enter your email">
+                <button>Subscribe</button>
+            </form>
+            <div class="social-icons">
+                <!-- Add your social media icons here -->
+                <a href="#" class="social-icon"><img src="{% static 'img/facebook-icon.png' %}" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="{% static 'img/twitter-icon.png' %}" alt="Twitter"></a>
+                <a href="#" class="social-icon"><img src="{% static 'img/instagram-icon.png' %}" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript files -->
+    {% block javascript %}
+    <!-- You can override this block in child templates if you need to add page-specific JavaScript files -->
+    {% endblock javascript %}
+</body>
+</html>
